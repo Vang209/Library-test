@@ -19,12 +19,20 @@ public class Main implements Serializable{
         System.out.println("Пожалуйста авторизуйтесь");
         Client.setClientNameForMyBooks(console.nextLine());
 
-        Client client = new Client("");
+        Client client = new Client(Client.getClientNameForMyBooks());
 
         List<Book> books = new ArrayList<>();
         books.clear();
         Log.logs.clear();
-        client.getClientList().clear();
+        Client.clientList.clear();
+
+//        books.add(new Book(Genre.DRAMA, "Автор1", "Название1"));
+//        books.add(new Book(Genre.THRILLER, "Автор2", "Название2"));
+//        books.add(new Book(Genre.HORROR, "Автор3 Автор4", "название3"));
+//
+//        Client.clientList.add(new Client("Клиент1"));
+//        Client.clientList.add(new Client("Клиент2"));
+
 
 
         FileInputStream fis = new FileInputStream("Domain.bin");
@@ -36,9 +44,9 @@ public class Main implements Serializable{
         fis.close();
 
         books = domainRead.bookList;
-        client.setClientList(domainRead.clientList);
+        Client.clientList = domainRead.clientList;
         Log.logs = domainRead.logList;
-        client = new Client(Client.getClientNameForMyBooks());
+
 
         System.out.println("Пожалуйста ввидите номер команды");
         System.out.println("1. Начало работы");
@@ -74,7 +82,7 @@ public class Main implements Serializable{
 
             FileOutputStream fos = new FileOutputStream("Domain.bin");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            Domain domain = new Domain(books, client.getClientList(), Log.logs);
+            Domain domain = new Domain(books, Client.clientList, Log.logs);
             oos.writeObject(domain);
             oos.close();
             fos.close();

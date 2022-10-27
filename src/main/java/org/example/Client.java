@@ -27,15 +27,7 @@ public class Client implements Serializable {
         this.nameClient=nameClient;
     }
 
-    public List<Client> getClientList() {
-        return clientList;
-    }
-
-    public void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
-    }
-
-    private List<Client> clientList = new ArrayList<>();
+    public static List<Client> clientList = new ArrayList<>();
 
     public static String getClientNameForMyBooks() {
         return clientNameForMyBooks;

@@ -12,9 +12,9 @@ public class ClientBook extends CommandAbstract{
     }
     @Override
     public void Command(List books) {
-        for (int i = 0; i < client.getClientList().size(); i++) {
-            if (client.getClientList().get(i).equals(client)) {
-                client.getClientList().get(i).serviceClient(books, client.getClientList().get(i));
+        for (int i = 0; i < Client.clientList.size(); i++) {
+            if (Client.clientList.get(i).equals(client)) {
+                Client.clientList.get(i).serviceClient(books, Client.clientList.get(i));
             }
         }
     }

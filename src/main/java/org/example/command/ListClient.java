@@ -12,8 +12,7 @@ public class ListClient extends CommandAbstract{
 
     @Override
     public void Command() {
-        Client client = new Client(Client.getClientNameForMyBooks());
-        List<Client> clientList = client.getClientList();
+        List<Client> clientList = Client.clientList;
         for (int i=0;i<clientList.size();i++){
             System.out.println(clientList.get(i).nameClient);
         }
