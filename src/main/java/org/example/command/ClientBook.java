@@ -2,6 +2,7 @@ package org.example.command;
 
 import org.example.Book;
 import org.example.Client;
+import org.example.ClientInterface;
 
 import java.util.List;
 
@@ -12,9 +13,10 @@ public class ClientBook extends CommandAbstract{
     }
     @Override
     public void Command(List books) {
+        ClientInterface clientInterface = new ClientInterface();
         for (int i = 0; i < Client.clientList.size(); i++) {
             if (Client.clientList.get(i).equals(client)) {
-                Client.clientList.get(i).serviceClient(books, Client.clientList.get(i));
+                clientInterface.serviceClient(books, Client.clientList.get(i));
             }
         }
     }

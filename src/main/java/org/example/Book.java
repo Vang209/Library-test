@@ -1,6 +1,8 @@
 package org.example;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -27,7 +29,6 @@ public class Book implements Serializable {
         this.title = title;
         this.genre = genre;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,6 +41,4 @@ public class Book implements Serializable {
     public int hashCode() {
         return Objects.hash(genre, author, title);
     }
-
-
 }
